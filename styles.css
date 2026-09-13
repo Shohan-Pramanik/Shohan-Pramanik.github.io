@@ -484,6 +484,7 @@ h1, h2, h3, p { margin: 0; }
 
 .section-cta { text-align: center; }
 .section-cta .lead { margin-bottom: 32px; }
+.section-cta .hero-actions { justify-content: center; }
 
 /* ---------- Stats ---------- */
 
