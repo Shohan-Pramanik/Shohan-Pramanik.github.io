@@ -147,7 +147,7 @@ h1, h2, h3, p { margin: 0; }
   inset: 0;
   z-index: -1;
   background:
-    radial-gradient(circle at 50% 0%, rgba(41,151,255,0.16), transparent 60%),
+    radial-gradient(560px circle at var(--mx, 50%) var(--my, 0%), rgba(41,151,255,0.18), transparent 60%),
     radial-gradient(circle at 20% 80%, rgba(255,55,95,0.08), transparent 55%),
     radial-gradient(circle at 80% 70%, rgba(52,199,89,0.08), transparent 55%);
 }
@@ -378,17 +378,34 @@ h1, h2, h3, p { margin: 0; }
 }
 
 .project-card {
+  position: relative;
+  overflow: hidden;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 32px;
   box-shadow: var(--card-shadow);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform: perspective(900px) rotateX(0deg) rotateY(0deg) translateY(0);
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(280px circle at var(--px, 50%) var(--py, 50%), rgba(127,127,127,0.16), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .project-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 36px rgba(0,0,0,0.08);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+}
+
+.project-card:hover::before {
+  opacity: 1;
 }
 
 .project-icon {
