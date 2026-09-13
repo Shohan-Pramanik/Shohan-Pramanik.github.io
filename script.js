@@ -73,10 +73,10 @@ if (!prefersReducedMotion && supportsHover) {
     });
   }
 
-  // Project cards — subtle 3D tilt with a light sheen that tracks the cursor
+  // Project cards & iPhone mockup — subtle 3D tilt with a light sheen that tracks the cursor
   const maxTilt = 7;
 
-  document.querySelectorAll('.project-card').forEach((card) => {
+  document.querySelectorAll('.project-card, .tilt-3d').forEach((card) => {
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const px = (e.clientX - rect.left) / rect.width;
